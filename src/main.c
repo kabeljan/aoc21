@@ -18,12 +18,15 @@
 #include <stdlib.h>
 
 #include "day1.h"
+#include "day2.h"
 
 int
 main (void)
 {
     day1_1();
     day1_2();
+    day2_1();
+    day2_2();
     
     return EXIT_SUCCESS;
 }
