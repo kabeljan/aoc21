@@ -23,6 +23,7 @@ int
 main (void)
 {
     day1_1();
+    day1_2();
     
     return EXIT_SUCCESS;
 }

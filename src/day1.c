@@ -5,19 +5,29 @@
 #include "day1_data.h"
 
 #define ARRAY_LEN(array) ((int)(sizeof(array) / sizeof(array[0])))
+#define WINDOW_SIZE_1 1
+#define WINDOW_SIZE_2 3
 
-void day1_1(void)
+int day1(int window_size)
 {
-    int prev_val = a_data[0];
     int inc_cnt = 0;
-    for (int data_idx = 0; data_idx < ARRAY_LEN(a_data); data_idx++)
+    for (int data_idx = 0; data_idx < ARRAY_LEN(a_data) - window_size; data_idx++)
     {
-        if (a_data[data_idx] > prev_val)
+        if (a_data[data_idx + window_size] > a_data[data_idx])
         {
             inc_cnt++;
         }
-        prev_val = a_data[data_idx];
     }
+    return inc_cnt;
+}
 
-    printf("Number of increases: %i\n", inc_cnt);
+
+void day1_1(void)
+{
+    printf("D01.1: Number of increases: %i\n", day1(WINDOW_SIZE_1));
+}
+
+void day1_2(void)
+{
+    printf("D01.2: Number of increases: %i\n", day1(WINDOW_SIZE_2));
 }
