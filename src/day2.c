@@ -42,5 +42,32 @@ void day2_1(void)
 
 void day2_2(void)
 {
-    printf("D01.2: \n");
+    long int hpos = 0;
+    long int depth = 0;
+    long int aim = 0;
+
+    for (int input_idx = 0; input_idx < ARRAY_LEN(a_input); input_idx++)
+    {
+        char buffer[INPUT_BUF_SIZE];
+        strcpy(buffer, a_input[input_idx]);
+        char* dir = strtok(buffer, TOKEN);
+        char* amount = strtok(NULL, TOKEN);
+        int amount_val = atoi(amount);
+
+        if (!strcmp(dir, "forward"))
+        {
+            hpos += amount_val;
+            depth += aim * amount_val;
+        }
+        else if (!strcmp(dir, "down"))
+        {
+            aim += amount_val;
+        }
+        else if (!strcmp(dir, "up"))
+        {
+            aim -= amount_val;
+        }
+    }
+
+    printf("D01.2: hpos: %li, depth: %li faktor: %li\n", hpos, depth, hpos * depth);
 }
