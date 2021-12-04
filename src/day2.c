@@ -37,7 +37,7 @@ void day2_1(void)
         }
     }
 
-    printf("D01.1: hpos: %i, depth: %i faktor: %i\n", hpos, depth, hpos * depth);
+    printf("D02.1: hpos: %i, depth: %i faktor: %i\n", hpos, depth, hpos * depth);
 }
 
 void day2_2(void)
@@ -69,5 +69,5 @@ void day2_2(void)
         }
     }
 
-    printf("D01.2: hpos: %li, depth: %li faktor: %li\n", hpos, depth, hpos * depth);
+    printf("D02.2: hpos: %li, depth: %li faktor: %li\n", hpos, depth, hpos * depth);
 }
