@@ -20,7 +20,7 @@ void day3_1(void)
     int ones_in_col[12] ={ 0 };
     while (NULL != fgets(line_buf, ARRAY_LEN(line_buf), input))
     {
-        for (int buf_idx = 0; buf_idx < ARRAY_LEN(line_buf) && line_buf[buf_idx] != '\0'; buf_idx++)
+        for (int buf_idx = 0; buf_idx < ARRAY_LEN(ones_in_col); buf_idx++)
         {
             if (line_buf[buf_idx] == '1')
             {
@@ -29,9 +29,24 @@ void day3_1(void)
         }
         rows++;
     }
+    
+    unsigned int gamma = 0;
+    unsigned int epsilon = 0;
+    for (int gamma_idx = 0; gamma_idx < ARRAY_LEN(ones_in_col); gamma_idx++)
+    {
+        gamma = gamma << 1;
+        epsilon = epsilon << 1;
+        if (ones_in_col[gamma_idx] > (rows / 2))
+        {
+            gamma += 1;
+        }
+        else
+        {
+            epsilon += 1;
+        }
+    }
 
-
-    printf("D03.1: %i %i %i %i %i %i %i %i %i %i %i %i %i\n", rows, ones_in_col[0], ones_in_col[1], ones_in_col[2], ones_in_col[3], ones_in_col[4], ones_in_col[5], ones_in_col[6], ones_in_col[7], ones_in_col[8], ones_in_col[9], ones_in_col[10], ones_in_col[11]);
+    printf("D03.1: gamma: %u epsilon: %u power: %u \n", gamma, epsilon, gamma * epsilon);
 }
 
 
